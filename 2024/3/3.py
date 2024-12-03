@@ -11,11 +11,11 @@ def solution():
     print('Part 2 result: ' + str(part2(data)))
     print(f'Finished p2 in {time.time() - start} seconds')
     
-mul_regex = 'mul\((\d{1,3}),(\d{1,3})\)'
+mul_regex = r'mul\((\d{1,3}),(\d{1,3})\)'
 # I started out trying to do some weird stuff with this before 
 # I realized I could put all of them in one pattern and just loop through it lol
-# do_regex = 'do\(\)'
-# dont_regex = "don\'t\(\)"
+# do_regex = r'do\(\)'
+# dont_regex = r"don\'t\(\)"
 
 def part1(data):
     pairs = re.findall(mul_regex, data)
@@ -25,7 +25,7 @@ def part1(data):
     return sum
 
 # capturing groups messed up my do/don't so I'm just using it regularly here
-p2_regex = "mul\(\d{1,3},\d{1,3}\)|do\(\)|don\'t\(\)"
+p2_regex = r"mul\(\d{1,3},\d{1,3}\)|do\(\)|don\'t\(\)"
 def part2(data):
     matches = re.findall(p2_regex, data)
     sum = 0
