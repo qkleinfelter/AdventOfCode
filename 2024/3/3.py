@@ -24,6 +24,7 @@ def part1(data):
         sum += int(pair[0]) * int(pair[1])
     return sum
 
+# capturing groups messed up my do/don't so I'm just using it regularly here
 p2_regex = "mul\(\d{1,3},\d{1,3}\)|do\(\)|don\'t\(\)"
 def part2(data):
     matches = re.findall(p2_regex, data)
@@ -36,6 +37,8 @@ def part2(data):
             currently_doing = True
         else:
             if currently_doing:
+                # i already know this will match because of the first regex, this findall is purely
+                # to let regex use capturing groups to help me out
                 pair = re.findall(mul_regex, match)[0]
                 sum += int(pair[0]) * int(pair[1])
         
