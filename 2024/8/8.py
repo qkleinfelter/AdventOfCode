@@ -31,7 +31,6 @@ def part1(data):
     C = len(data[0])
 
     antennae = defaultdict(set)
-    antinodes = set()
     for r in range(R):
         for c in range(C):
             item = grid[r][c]
